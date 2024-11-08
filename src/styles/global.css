@@ -1,0 +1,29 @@
+* src/styles/global.css */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Change font as needed */
+}
+
+h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+}
+
+.projects {
+    padding: 20px;
+}
+
+.appreciation {
+    background-color: #f9f9f9; /* Example background color */
+    padding: 20px;
+    text-align: center;
+}
+
+.videos {
+    padding: 20px;
+}
