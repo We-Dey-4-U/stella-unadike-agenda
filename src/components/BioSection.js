@@ -11,7 +11,7 @@ const BioSection = () => {
             <div className="bio-text">
                 <h2>About Honourable Stella Unadike</h2>
                 
-                {/* Introduction Section */}
+                {/* Introduction Sectio */}
                 <p>
                     Honourable Evangelist Stella Unadike Nonyerem is a dedicated public servant with a deep commitment to improving her community. Born and raised in Ubakuru Mbieri, the heart of the Unadike family, she has a strong connection to the people she serves and a profound understanding of the unique challenges facing her community.
                 </p>
