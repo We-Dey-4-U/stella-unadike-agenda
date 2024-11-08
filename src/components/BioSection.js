@@ -6,7 +6,7 @@ const BioSection = () => {
     return (
         <div className="bio-section">
             <div className="bio-image">
-                <img src='/images/honpics.JPG' alt="Honourable Stella Unadike" />
+                <img src='/images/mum2.JPG' alt="Honourable Stella Unadike" />
             </div>
             <div className="bio-text">
                 <h2>About Honourable Stella Unadike</h2>
