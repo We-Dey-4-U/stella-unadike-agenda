@@ -12,7 +12,7 @@ const AgendaSection = () => {
             {/* Hero Section */}
             <div className="hero-section">
                 <img 
-                    src='/images/mum2.JPG'// Replace with the path to your image
+                    src='/images/deep.JPG'// Replace with the path to your image
                     alt="Hero Banner"
                     className="hero-image" 
                 />
