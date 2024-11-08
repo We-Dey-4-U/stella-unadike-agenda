@@ -14,9 +14,9 @@ const HeroSection = () => {
     };
 
     const images = [
-        '/images/deep.JPG',
-        '/images/deep.JPG',
-        '/images/deep.JPG',
+        '/images/honpics.JPG',
+        '/images/honpics.JPG',
+        '/images/honpics.JPG',
         // Add more images as needed
     ];
 
