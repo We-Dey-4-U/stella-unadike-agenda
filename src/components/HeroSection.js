@@ -14,9 +14,9 @@ const HeroSection = () => {
     };
 
     const images = [
-        '/images/honpics.JPG',
-        '/images/honpics.JPG',
-        '/images/elder lady home care.JPG',
+        '/images/deep.JPG',
+        '/images/deep.JPG',
+        '/images/deep.JPG',
         // Add more images as needed
     ];
 
