@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Agenda from './components/Agenda';
 import Tools from './components/Tools';
-import Complaints from './components/Complaints';
+import Contact from './components/Contact';
 
 const App = () => {
     return (
@@ -13,7 +13,8 @@ const App = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/agenda" element={<Agenda />} />
                 <Route path="/tools" element={<Tools />} />
-                <Route path="/complaints" element={<Complaints />} />
+                <Route path="/contact" element={<Contact />} />
+               
             </Routes>
         </Router>
     );

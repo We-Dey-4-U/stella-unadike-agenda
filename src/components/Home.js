@@ -9,6 +9,7 @@ import AppreciationMessage from './AppreciationMessage';
 import Footer from './Footer'; // Import the Footer component
 import './Home.css'; // Global styles for the homepage
 import '../styles/global.css'; // Import global styles
+import Blog from './Blog/Blog'; // Import the Blog component
 
 const Home = () => {
     return (
@@ -18,6 +19,7 @@ const Home = () => {
             <BioSection /> {/* Add BioSection here */}
             <AppreciationMessage />
             <ProjectsSection />
+            <Blog /> {/* This will display the blog after the contact form */}
             <Footer /> {/* Add Footer here */}
         </div>
     );

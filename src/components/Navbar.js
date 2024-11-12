@@ -21,9 +21,12 @@ const Navbar = () => {
                 <span className={isOpen ? 'bar open' : 'bar'}></span>
             </div>
             <ul className={`navbar-links ${isOpen ? 'open' : ''}`}>
+                <li><Link to="/">Home</Link></li>
                 <li><Link to="/agenda">Agenda</Link></li>
                 <li><Link to="/projects">Projects</Link></li>
-                <li><Link to="/complaints">Complaints</Link></li>
+                <li><Link to="/Contact">Contact</Link></li>
+                {/* Add Blog Page Link */}
+                <li><Link to="/blog-list"></Link></li>  {/* Blog List Link */}
             </ul>
         </nav>
     );

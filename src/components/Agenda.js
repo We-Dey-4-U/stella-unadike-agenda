@@ -2,6 +2,7 @@
 import React from 'react';
 import Navbar from './Navbar'; // Import the Navbar component
 import Footer from './Footer'; // Import the Footer component
+import Blog from './Blog/Blog'; // Import the Blog component
 import './AgendaSection.css';
 
 const AgendaSection = () => {
@@ -94,6 +95,11 @@ const AgendaSection = () => {
                     <h3>Vision for a Brighter Future</h3>
                     <p>Honourable Stella Unadike’s vision is to build a community where all residents have the resources, support, and opportunities needed to thrive. She believes in fostering a sustainable future, guided by compassion, resilience, and unity. By empowering individuals and enhancing local infrastructure, her goal is to create a legacy of progress, inclusivity, and prosperity for the generations to come.</p>
                 </section>
+            </div>
+
+             {/* Insert Blog component here */}
+             <div className="blog-section">
+                <Blog /> {/* This will display the blog after the contact form */}
             </div>
 
             <Footer /> {/* Add Footer here */}
