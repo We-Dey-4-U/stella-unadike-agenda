@@ -14,8 +14,8 @@ const Contact = () => {
                     <div className="container">
                         <div className="contact-content">
                             <div className="contact-form">
-                                <h2>Contact Honourable</h2>
-                                <h2>To Book Appointment</h2>
+                                <h2>Contact Honourable To Book Appointment</h2>
+                               
                                 <form method="post" action="https://formspree.io/f/xpznvjqe">
                                     <label>
                                         Name:
