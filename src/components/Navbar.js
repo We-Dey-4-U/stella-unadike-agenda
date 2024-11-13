@@ -26,7 +26,8 @@ const Navbar = () => {
                 <li><Link to="/projects">Projects</Link></li>
                 <li><Link to="/Contact">Contact</Link></li>
                 {/* Add Blog Page Link */}
-                <li><Link to="/blog-list"></Link></li>  {/* Blog List Link */}
+                <li><Link to="/blog-list">Blog</Link></li> {/* BlogList link */}
+                <li> <Link to="/admin/post-form">Create Post</Link> </li> {/* Admin Post Form link */}
             </ul>
         </nav>
     );

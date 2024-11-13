@@ -1,0 +1,17 @@
+.ad-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.ad-container iframe {
+    width: 100%;
+    height: auto;
+    max-width: 560px;
+    margin: 20px 0;
+}
+
+.adsbygoogle {
+    display: block;
+    text-align: center;
+    margin: 20px 0;
+}

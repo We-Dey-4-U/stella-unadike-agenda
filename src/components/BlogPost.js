@@ -1,0 +1,47 @@
+import React from 'react';
+import AdComponent from './AdComponent'; // Import the ad component
+
+const BlogPost = ({ post }) => {
+    // Function to insert ads after every second paragraph
+    const renderContentWithAds = (content) => {
+        const paragraphs = content.split("\n\n"); // Split content by paragraph
+        const contentWithAds = [];
+
+        paragraphs.forEach((paragraph, index) => {
+            // Add paragraph to the content
+            contentWithAds.push(<p key={`p-${index}`}>{paragraph}</p>);
+
+            // Insert an AdSense ad after every second paragraph
+            if ((index + 1) % 2 === 0) {
+                contentWithAds.push(
+                    <div key={`ad-${index}`} className="ad-container">
+                        <AdComponent /> {/* Use the AdSense ad component */}
+                    </div>
+                );
+            }
+        });
+
+        return contentWithAds;
+    };
+
+    return (
+        <div className="blog-post">
+            <h2>{post.title}</h2>
+            {/* Conditionally render image if available */}
+            {post.image && <img src={post.image} alt={post.title} />} 
+            
+            {/* Render content with ads inserted at intervals */}
+            <div>{renderContentWithAds(post.content)}</div>
+            
+            <p><strong>Author:</strong> {post.author}</p>
+
+            {/* Conditionally render video if available */}
+            {post.videoUrl && <video src={post.videoUrl} controls />} 
+            
+            {/* Embed YouTube video if available */}
+            {post.youtubeEmbed && <div dangerouslySetInnerHTML={{ __html: post.youtubeEmbed }} />} 
+        </div>
+    );
+}
+
+export default BlogPost;

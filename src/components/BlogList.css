@@ -1,0 +1,21 @@
+/* BlogList.css */
+
+/* Optional: style the blog list */
+.blog-list {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #f4f4f4;
+}
+
+/* Styling for error message */
+.blog-list p {
+    color: red;
+    font-weight: bold;
+}
+
+/* Adjusting styles for small screens */
+@media (max-width: 768px) {
+    .blog-list {
+        padding: 10px;
+    }
+}
