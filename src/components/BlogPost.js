@@ -11,11 +11,11 @@ const BlogPost = ({ post }) => {
             // Add paragraph to the content
             contentWithAds.push(<p key={`p-${index}`}>{paragraph}</p>);
 
-            // Insert an AdSense ad after every second paragraph
+            // Insert an AdComponent after every second paragraph
             if ((index + 1) % 2 === 0) {
                 contentWithAds.push(
                     <div key={`ad-${index}`} className="ad-container">
-                        <AdComponent /> {/* Use the AdSense ad component */}
+                        <AdComponent /> {/* Render the AdComponent */}
                     </div>
                 );
             }
@@ -27,21 +27,31 @@ const BlogPost = ({ post }) => {
     return (
         <div className="blog-post">
             <h2>{post.title}</h2>
+
             {/* Conditionally render image if available */}
-            {post.image && <img src={post.image} alt={post.title} />} 
+            {post.image && <img src={post.image} alt={post.title} className="post-image" />}
             
-            {/* Render content with ads inserted at intervals */}
-            <div>{renderContentWithAds(post.content)}</div>
+            {/* Render content with ads inserted */}
+            <div className="post-content">{renderContentWithAds(post.content)}</div>
             
             <p><strong>Author:</strong> {post.author}</p>
 
             {/* Conditionally render video if available */}
-            {post.videoUrl && <video src={post.videoUrl} controls />} 
-            
+            {post.videoUrl && <video src={post.videoUrl} controls className="post-video" />}
+
             {/* Embed YouTube video if available */}
-            {post.youtubeEmbed && <div dangerouslySetInnerHTML={{ __html: post.youtubeEmbed }} />} 
+            {post.youtubeEmbed && <div className="embed-container" dangerouslySetInnerHTML={{ __html: post.youtubeEmbed }} />}
+
+            {/* Embed Facebook post if available */}
+            {post.facebookEmbed && <div className="embed-container" dangerouslySetInnerHTML={{ __html: post.facebookEmbed }} />}
+
+            {/* Embed Twitter post if available */}
+            {post.twitterEmbed && <div className="embed-container" dangerouslySetInnerHTML={{ __html: post.twitterEmbed }} />}
+
+            {/* Embed Instagram post if available */}
+            {post.instagramEmbed && <div className="embed-container" dangerouslySetInnerHTML={{ __html: post.instagramEmbed }} />}
         </div>
     );
-}
+};
 
 export default BlogPost;
