@@ -58,32 +58,26 @@ const AdminPostForm = () => {
 
     const handlePostSubmit = async (e) => {
         e.preventDefault();
-
+    
         const formData = new FormData();
         formData.append('title', title);
         formData.append('content', content);
         formData.append('author', author);
         formData.append('videoUrl', videoUrl);
-
-        //http://localhost:5000
-        //https://blogserver-mb2q.vercel.app
-        // Generate embed codes for each platform
         formData.append('youtubeEmbed', generateYouTubeEmbed(youtubeEmbed));
         formData.append('facebookEmbed', generateFacebookEmbed(facebookEmbed));
         formData.append('twitterEmbed', generateTwitterEmbed(twitterEmbed));
         formData.append('instagramEmbed', generateInstagramEmbed(instagramEmbed));
-        
+    
         if (image) {
             formData.append('image', image);
         }
-
+    
         try {
             const response = await axios.post('https://blogserver-mb2q.vercel.app/api/posts', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
+                headers: { 'Content-Type': 'multipart/form-data' },
             });
-            console.log(response.data);
+            console.log('Post created successfully:', response.data);
         } catch (error) {
             console.error('Error creating post:', error);
         }
