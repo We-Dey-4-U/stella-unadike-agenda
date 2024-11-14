@@ -72,7 +72,8 @@ const AdminPostForm = () => {
         if (image) {
             formData.append('image', image);
         }
-    
+    //http://localhost:5000
+    //https://blogserver-mb2q.vercel.app
         try {
             const response = await axios.post('https://blogserver-mb2q.vercel.app/api/posts', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },

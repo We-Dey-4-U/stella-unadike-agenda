@@ -12,7 +12,7 @@ const BlogList = () => {
         const fetchPosts = async () => {
             try {
                 const res = await axios.get('https://blogserver-mb2q.vercel.app/api/posts'); // Fetching data from the backend
-                setPosts(res.data); // Setting the posts to state
+                setPosts(res.data); // Setting the posts to state   http://localhost:5000   https://blogserver-mb2q.vercel.app
             } catch (err) {
                 console.error("Error fetching posts:", err);
                 setError('Failed to fetch posts'); // Handling errors

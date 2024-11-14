@@ -30,7 +30,7 @@ const BlogPost = ({ post }) => {
         <div className="blog-post">
             <h2>{post.title}</h2>
 
-            {/* Conditionally render image if available */}
+            {/* Conditionally render image if available    http://localhost:5000  https://blogserver-mb2q.vercel.app */}
           {/* Display image with caption */}
           {post.image && (
                 <figure className="post-image-figure">
