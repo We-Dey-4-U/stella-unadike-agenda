@@ -76,12 +76,20 @@ const AdminPostForm = () => {
         try {
             const response = await axios.post('https://blogserver-mb2q.vercel.app/api/posts', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
+                timeout: 10000,  // Increase timeout if necessary
             });
             console.log('Post created successfully:', response.data);
         } catch (error) {
-            console.error('Error creating post:', error);
+            if (error.response) {
+                console.error('Server error response:', error.response);
+            } else if (error.request) {
+                console.error('No response received:', error.request);
+            } else {
+                console.error('Error during request:', error.message);
+            }
         }
-    };
+
+    }
 
     return (
         <div>
