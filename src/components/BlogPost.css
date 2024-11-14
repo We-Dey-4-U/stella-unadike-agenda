@@ -8,10 +8,11 @@
 }
 
 .post-image {
-    width: 100%;
-    height: auto;
-    max-width: 600px;
-    margin-bottom: 20px;
+    width: 100%;           /* Make image take up full width of its container */
+    max-width: 500px;      /* Limit the maximum width for larger screens */
+    height: auto;          /* Maintain aspect ratio */
+    margin: 0 auto;        /* Center the image */
+    display: block;
 }
 
 /* Ensure that videos are responsive */
@@ -61,5 +62,8 @@
 
     .embed-container {
         padding-bottom: 75%; /* Adjust aspect ratio for smaller screens */
+    }
+    .post-image {
+        max-width: 100%;   /* Allow image to be full width on small screens */
     }
 }

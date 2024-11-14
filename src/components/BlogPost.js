@@ -1,5 +1,7 @@
 import React from 'react';
+import { formatDistanceToNow } from 'date-fns';
 import AdComponent from './AdComponent'; // Import the ad component
+import './BlogPost.css';
 
 const BlogPost = ({ post }) => {
     // Function to insert ads after every second paragraph
@@ -29,10 +31,22 @@ const BlogPost = ({ post }) => {
             <h2>{post.title}</h2>
 
             {/* Conditionally render image if available */}
-            {post.image && <img src={post.image} alt={post.title} className="post-image" />}
+          {/* Display image with caption */}
+          {post.image && (
+                <figure className="post-image-figure">
+                    <img src={`http://localhost:5000${post.image}`} alt={post.title} className="post-image" />
+                    <figcaption className="post-image-caption">{post.title}</figcaption> {/* Caption below image */}
+                </figure>
+            )}
             
             {/* Render content with ads inserted */}
             <div className="post-content">{renderContentWithAds(post.content)}</div>
+
+             {/* Display the relative time */}
+             <p className="post-time">
+                Posted {formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}
+            </p>
+            
             
             <p><strong>Author:</strong> {post.author}</p>
 
