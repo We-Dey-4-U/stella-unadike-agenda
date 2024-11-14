@@ -34,7 +34,7 @@ const BlogPost = ({ post }) => {
           {/* Display image with caption */}
           {post.image && (
                 <figure className="post-image-figure">
-                    <img src={`http://localhost:5000${post.image}`} alt={post.title} className="post-image" />
+                    <img src={`https://blogserver-mb2q.vercel.app${post.image}`} alt={post.title} className="post-image" />
                     <figcaption className="post-image-caption">{post.title}</figcaption> {/* Caption below image */}
                 </figure>
             )}

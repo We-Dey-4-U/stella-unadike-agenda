@@ -11,7 +11,7 @@ const BlogList = () => {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/posts'); // Fetching data from the backend
+                const res = await axios.get('https://blogserver-mb2q.vercel.app/api/posts'); // Fetching data from the backend
                 setPosts(res.data); // Setting the posts to state
             } catch (err) {
                 console.error("Error fetching posts:", err);

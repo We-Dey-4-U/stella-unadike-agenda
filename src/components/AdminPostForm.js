@@ -64,7 +64,9 @@ const AdminPostForm = () => {
         formData.append('content', content);
         formData.append('author', author);
         formData.append('videoUrl', videoUrl);
-        
+
+        //http://localhost:5000
+        //https://blogserver-mb2q.vercel.app
         // Generate embed codes for each platform
         formData.append('youtubeEmbed', generateYouTubeEmbed(youtubeEmbed));
         formData.append('facebookEmbed', generateFacebookEmbed(facebookEmbed));
@@ -76,7 +78,7 @@ const AdminPostForm = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:5000/api/posts', formData, {
+            const response = await axios.post('https://blogserver-mb2q.vercel.app/api/posts', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
