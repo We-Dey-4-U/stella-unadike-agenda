@@ -8,7 +8,7 @@ import './AgendaSection.css';
 const AgendaSection = () => {
     return (
         <div>
-            <Navbar /> {/* Add the Navbar here */}
+           
 
             {/* Hero Section */}
             <div className="hero-section">

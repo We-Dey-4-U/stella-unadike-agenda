@@ -1,69 +1,197 @@
-/* BlogPost.css */
-
-/* Make sure the overall blog post looks good */
+/* General BlogPost styles */
 .blog-post {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
 }
 
 .post-image {
-    width: 100%;           /* Make image take up full width of its container */
-    max-width: 500px;      /* Limit the maximum width for larger screens */
-    height: auto;          /* Maintain aspect ratio */
-    margin: 0 auto;        /* Center the image */
-    display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
-/* Ensure that videos are responsive */
-.post-video {
-    width: 100%;
-    height: auto;
-    max-width: 600px;
-    margin-bottom: 20px;
+.post-content p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Ad container */
+.ad-container {
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Comment Section */
+.comments {
+  margin-top: 40px;
+}
+
+.comments h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Individual Comment */
+.comments > div {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.comments > div p {
+  margin: 5px 0;
+}
+
+.comments strong {
+  color: #333;
+}
+
+.comments button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.comments button:hover {
+  background: #0056b3;
+}
+
+/* Reply Section */
+.reply {
+  margin-top: 10px;
+  padding: 10px;
+  background: #f1f1f1;
+  border-left: 3px solid #007bff;
+  margin-left: 15px;
+  border-radius: 4px;
+}
+
+/* Reply button and textarea */
+textarea {
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px;
+  resize: none;
+  font-size: 14px;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+}
+
+.comments textarea + button {
+  margin-top: 10px;
+}
+
+/* Login prompt button */
+.login-button {
+  background: transparent;
+  border: none;
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+
+
+.media-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.media-item {
+  flex: 1 1 300px; /* Adjust width as needed */
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+}
+
+.media-item video {
+  width: 100%;
+  height: auto;
+}
+
+.media-item iframe {
+  width: 100%;
+  height: auto;
+}
+
+.media-item div {
+  width: 100%;
+  overflow: hidden;
 }
 
 /* Make embed containers responsive */
-.embed-container {
-    position: relative;
-    padding-bottom: 56.25%; /* Aspect ratio for 16:9 videos */
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    background: #000;
-    margin-bottom: 20px;
-}
 
-.embed-container iframe,
-.embed-container object,
-.embed-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
 
-/* For AdComponent (adjust according to needs) */
-.ad-container {
-    margin: 20px 0;
-    text-align: center;
-}
-
-/* Responsive layout for mobile devices */
+/* Responsive layout for small screens */
 @media (max-width: 768px) {
-    .blog-post {
-        padding: 15px;
-    }
+  .blog-post {
+      padding: 10px;
+  }
 
-    .post-image, .post-video {
-        max-width: 100%;
-    }
+  .post-image, .post-video {
+      max-width: 100%;
+  }
 
-    .embed-container {
-        padding-bottom: 75%; /* Adjust aspect ratio for smaller screens */
-    }
-    .post-image {
-        max-width: 100%;   /* Allow image to be full width on small screens */
-    }
+  .embed-container {
+      padding-bottom: 75%; /* Adjust aspect ratio for smaller screens */
+  }
+
+  .comments h3 {
+      font-size: 18px;
+  }
+
+  .comments > div {
+      padding: 10px;
+  }
+
+  .comments button {
+      font-size: 12px;
+      padding: 5px 8px;
+  }
+
+  .reply {
+      margin-left: 10px;
+      padding: 8px;
+  }
+
+  textarea {
+      height: 50px;
+      font-size: 12px;
+  }
+
+  .ad-container {
+      font-size: 12px;
+      padding: 8px;
+  }
 }
+
+
+
+

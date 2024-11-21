@@ -75,9 +75,9 @@ const AdminPostForm = () => {
     //http://localhost:5000
     //https://blogserver-mb2q.vercel.app
         try {
-            const response = await axios.post('https://blogserver-mb2q.vercel.app/api/posts', formData, {
+            const response = await axios.post('http://localhost:5000/api/posts', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
-                timeout: 10000,  // Increase timeout if necessary
+                timeout: 15000, // Adjust as needed
             });
             console.log('Post created successfully:', response.data);
         } catch (error) {
@@ -94,7 +94,7 @@ const AdminPostForm = () => {
 
     return (
         <div>
-            <Navbar />
+           
 
             <div className="admin-post-form-page">
                 <h1>Create Post</h1>

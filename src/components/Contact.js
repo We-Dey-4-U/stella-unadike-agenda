@@ -7,7 +7,7 @@ import './contact.css';
 const Contact = () => {
     return (
         <div>
-            <Navbar /> {/* Add the Navbar here */}
+           
 
             <div className="contact-form-page">
                 <div className="contact-section">

@@ -14,7 +14,7 @@ import Blog from './Blog/Blog'; // Import the Blog component
 const Home = () => {
     return (
         <div>
-            <Navbar />
+           
             <HeroSection />
             <BioSection /> {/* Add BioSection here */}
             <AppreciationMessage />

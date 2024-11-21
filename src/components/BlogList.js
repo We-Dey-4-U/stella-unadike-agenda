@@ -5,14 +5,17 @@ import BlogPost from './BlogPost';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-const BlogList = () => {
+const BlogList = ({ isLoggedIn, onLogin }) => {
     const [posts, setPosts] = useState([]);
     const [error, setError] = useState(null);
+
+    //http://localhost:5000
+    //https://blogserver-mb2q.vercel.app
 
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const res = await axios.get('https://blogserver-mb2q.vercel.app/api/posts');
+                const res = await axios.get('http://localhost:5000/api/posts');
                 setPosts(res.data);
             } catch (err) {
                 console.error("Error fetching posts:", err);
@@ -43,13 +46,17 @@ const BlogList = () => {
                 <meta name="twitter:image" content={imageUrl} />
             </Helmet>
 
-            <Navbar /> {/* Render Navbar */}
-
+            
             <div className="blog-list">
                 {error && <p>{error}</p>}
                 {posts.length > 0 ? (
                     posts.map((post) => (
-                        <BlogPost key={post._id} post={post} />
+                        <BlogPost
+                            key={post._id}
+                            post={post}
+                            isLoggedIn={isLoggedIn} // Pass isLoggedIn to BlogPost
+                            onLogin={onLogin} // Pass onLogin to BlogPost
+                        />
                     ))
                 ) : (
                     <p>No posts available</p>
