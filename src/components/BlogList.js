@@ -1,71 +1,61 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Helmet } from 'react-helmet'; // Import Helmet for dynamic meta tags
-import BlogPost from './BlogPost';
-import Navbar from './Navbar';
-import Footer from './Footer';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet'; // Dynamic meta tags
+import Navbar from './Navbar'; // Optional Navbar component
+import Footer from './Footer'; // Optional Footer component
+import './BlogList.css'; 
+
+
+// Add your styles here          <p>{post.summary || post.content.substring(0, 100)}...</p>
 
 const BlogList = ({ isLoggedIn, onLogin }) => {
-    const [posts, setPosts] = useState([]);
-    const [error, setError] = useState(null);
+  const [posts, setPosts] = useState([]);
+  const [error, setError] = useState(null);
 
-    //http://localhost:5000
-    //https://blogserver-mb2q.vercel.app
+  useEffect(() => {
+      const fetchPosts = async () => {
+          try {
+              const res = await axios.get('https://serialreporter-oobf.vercel.app//api/posts');
+              setPosts(res.data);
+          } catch (err) {
+              console.error("Error fetching posts:", err);
+              setError('Failed to fetch posts');
+          }
+      };
+      fetchPosts();
+  }, []);
 
-    useEffect(() => {
-        const fetchPosts = async () => {
-            try {
-                const res = await axios.get('http://localhost:5000/api/posts');
-                setPosts(res.data);
-            } catch (err) {
-                console.error("Error fetching posts:", err);
-                setError('Failed to fetch posts');
-            }
-        };
-        fetchPosts();
-    }, []);
+  const defaultImage = "https://your-default-image.jpg";
+  const imageUrl = posts.length > 0 ? posts[0]?.image || defaultImage : defaultImage;
 
-    // Set the default or most recent post image for meta tags
-    const defaultImage = "https://stella-unadike-agenda-9xi3.vercel.app/images/blog-list-preview.jpg";
-    const imageUrl = posts.length > 0 ? `https://blogserver-mb2q.vercel.app${posts[0].image}` : defaultImage;
-
-    return (
-        <div>
-            {/* Helmet for SEO and Social Sharing Meta Tags */}
-            <Helmet>
-                <title>Serial Reporter</title>
-                <meta property="og:title" content="Explore Our Blog List" />
-                <meta property="og:description" content="Discover insightful articles and updates on our latest blogs." />
-                <meta property="og:image" content={imageUrl} />
-                <meta property="og:url" content="https://stella-unadike-agenda-9xi3.vercel.app/blog-list" />
-
-                {/* Twitter Card Meta Tags */}
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Explore Our Blog List" />
-                <meta name="twitter:description" content="Read our latest blogs for in-depth articles and resources." />
-                <meta name="twitter:image" content={imageUrl} />
-            </Helmet>
-
-            
-            <div className="blog-list">
-                {error && <p>{error}</p>}
-                {posts.length > 0 ? (
-                    posts.map((post) => (
-                        <BlogPost
-                            key={post._id}
-                            post={post}
-                            isLoggedIn={isLoggedIn} // Pass isLoggedIn to BlogPost
-                            onLogin={onLogin} // Pass onLogin to BlogPost
-                        />
-                    ))
-                ) : (
-                    <p>No posts available</p>
-                )}
-            </div>
-
-            <Footer /> {/* Render Footer */}
-        </div>
-    );
+  return (
+      <>
+          <Helmet>
+              <title>Blog List</title>
+              <meta name="description" content="Read our latest blogs on various topics." />
+              <meta property="og:image" content={imageUrl} />
+          </Helmet>
+         
+          <div className="blog-list">
+              <h1>Latest News</h1>
+              {error && <p>{error}</p>}
+              {posts.length > 0 ? (
+                  posts.map((post) => (
+                      <div key={post._id} className="post-preview">
+                          <Link to={`/post/${post._id}`}>
+                              <img src={post.image || defaultImage} alt={post.title} />
+                          </Link>
+                          <h2>{post.title}</h2>
+                      </div>
+                  ))
+              ) : (
+                  <p>No posts available</p>
+              )}
+          </div>
+          <Footer />
+      </>
+  );
 };
 
 export default BlogList;

@@ -13,6 +13,7 @@ import { jwtDecode } from 'jwt-decode';
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState(localStorage.getItem('username') || '');
+  const [isLoginVisible, setIsLoginVisible] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -65,8 +66,10 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin/post-form" element={<AdminPostForm />} />
         <Route path="/blog-list" element={<BlogList isLoggedIn={isLoggedIn} />} />
-        <Route path="/blog-post/:id" element={<BlogPost isLoggedIn={isLoggedIn} />} />
+        <Route path="/blog-post/:id" element={<BlogPost isLoggedIn={isLoggedIn} onLogin={handleLogin} />} />
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
+        <Route path="/" element={<BlogList isLoggedIn={isLoggedIn} onLogin={handleLogin}/>} />
+        <Route path="/post/:id" element={<BlogPost isLoggedIn={isLoggedIn} onLogin={handleLogin} />} />
       </Routes>
     </Router>
   );
