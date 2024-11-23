@@ -183,7 +183,14 @@ const BlogPost = ({ isLoggedIn, onLogin }) => {
       <Helmet>
         <title>{post.title}</title>
         <meta name="description" content={post.summary || post.content.substring(0, 100)} />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.summary || post.content.substring(0, 100)} />
         <meta property="og:image" content={`https://serialreporter-oobf.vercel.app${post.image}`} />
+        <meta property="og:url" content={`https://serialreporter-oobf.vercel.app/post/${post._id}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.summary || post.content.substring(0, 100)} />
+        <meta name="twitter:image" content={`https://serialreporter-oobf.vercel.app${post.image}`} />
       </Helmet>
       <div className="blog-post">
         <h2>{post?.title || 'No Title Available'}</h2>
