@@ -16,7 +16,7 @@ const BlogList = ({ isLoggedIn, onLogin }) => {
   useEffect(() => {
       const fetchPosts = async () => {
           try {
-              const res = await axios.get('https://serialreporter-oobf.vercel.app//api/posts');
+              const res = await axios.get('https://serialreporter-oobf.vercel.app/api/posts');
               setPosts(res.data);
           } catch (err) {
               console.error("Error fetching posts:", err);
