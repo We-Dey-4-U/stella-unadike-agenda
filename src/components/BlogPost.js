@@ -25,7 +25,7 @@ const BlogPost = ({ isLoggedIn, onLogin }) => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/posts/${id}`);
+        const response = await axios.get(`https://serialreporter-oobf.vercel.app/api/posts/${id}`);
         setPost(response.data); // Corrected function name
       } catch (err) {
         if (err.response && err.response.status === 404) {
@@ -85,7 +85,7 @@ const BlogPost = ({ isLoggedIn, onLogin }) => {
       setError('');
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/comments/${post._id}`,
+          `https://serialreporter-oobf.vercel.app/api/comments/${post._id}`,
           { headers: { Authorization: `Bearer ${authToken}` } }
         );
         setComments(Array.isArray(response.data) ? response.data : []); // Ensuring comments is always an array
@@ -126,8 +126,8 @@ const BlogPost = ({ isLoggedIn, onLogin }) => {
 
       const endpoint =
         type === 'comment'
-          ? `http://localhost:5000/api/comments/${post._id}`
-          : `http://localhost:5000/api/comments/${commentId}/replies`;
+          ? `https://serialreporter-oobf.vercel.app/api/comments/${post._id}`
+          : `https://serialreporter-oobf.vercel.app/api/comments/${commentId}/replies`;
 
       const response = await axios.post(
         endpoint,
@@ -183,13 +183,13 @@ const BlogPost = ({ isLoggedIn, onLogin }) => {
       <Helmet>
         <title>{post.title}</title>
         <meta name="description" content={post.summary || post.content.substring(0, 100)} />
-        <meta property="og:image" content={`http://localhost:5000${post.image}`} />
+        <meta property="og:image" content={`https://serialreporter-oobf.vercel.app${post.image}`} />
       </Helmet>
       <div className="blog-post">
         <h2>{post?.title || 'No Title Available'}</h2>
         {post?.image && (
           <figure>
-            <img src={`http://localhost:5000${post.image}`} alt={post?.title} className="post-image" />
+            <img src={`https://serialreporter-oobf.vercel.app${post.image}`} alt={post?.title} className="post-image" />
             <figcaption>{post?.title}</figcaption>
           </figure>
         )}

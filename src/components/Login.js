@@ -15,7 +15,7 @@ const Login = ({ onLogin }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      const res = await axios.post('https://serialreporter-oobf.vercel.app/api/auth/login', { email, password });
       const token = res.data.token;
 
       if (!isValidToken(token)) {
@@ -47,7 +47,7 @@ const Login = ({ onLogin }) => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/auth/register', { username, email, password });
+      await axios.post('https://serialreporter-oobf.vercel.app/api/auth/register', { username, email, password });
       setIsRegister(false);
     } catch (err) {
       setError(err.response?.data?.msg || 'Registration failed');
