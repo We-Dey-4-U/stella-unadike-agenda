@@ -75,7 +75,7 @@ const AdminPostForm = () => {
     //http://localhost:5000
     //https://blogserver-mb2q.vercel.app
         try {
-            const response = await axios.post('http://localhost:5000/api/posts', formData, {
+            const response = await axios.post('https://serialreporter-oobf.vercel.app/api/posts', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
                 timeout: 15000, // Adjust as needed
             });
