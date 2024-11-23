@@ -6,7 +6,6 @@ import Navbar from './Navbar'; // Optional Navbar component
 import Footer from './Footer'; // Optional Footer component
 import './BlogList.css'; 
 
-
 // Add your styles here          <p>{post.summary || post.content.substring(0, 100)}...</p>
 
 const BlogList = ({ isLoggedIn, onLogin }) => {
@@ -44,7 +43,12 @@ const BlogList = ({ isLoggedIn, onLogin }) => {
                   posts.map((post) => (
                       <div key={post._id} className="post-preview">
                           <Link to={`/post/${post._id}`}>
-                              <img src={post.image || defaultImage} alt={post.title} />
+                              <img 
+                                  src={`https://serialreporter-oobf.vercel.app${post.image}`} 
+                                  alt={post?.title} 
+                                  className="post-image" 
+                                  onError={(e) => { e.target.src = 'https://your-default-image.jpg'; }} // Fallback if image fails
+                              />
                           </Link>
                           <h2>{post.title}</h2>
                       </div>
