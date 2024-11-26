@@ -7,6 +7,8 @@ import Footer from './Footer'; // Optional Footer component
 import './BlogList.css'; 
 
 // Add your styles here          <p>{post.summary || post.content.substring(0, 100)}...</p>
+//https://serialreporter-oobf.vercel.app
+//http://localhost:5000
 
 const BlogList = ({ isLoggedIn, onLogin }) => {
   const [posts, setPosts] = useState([]);

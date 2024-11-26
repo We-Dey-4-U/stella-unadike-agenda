@@ -4,6 +4,8 @@ import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';  // Corrected import
 import './login.css';
 
+//https://serialreporter-oobf.vercel.app
+
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -26,10 +28,13 @@ const Login = ({ onLogin }) => {
 
       const decoded = jwtDecode(token);
       const decodedUsername = decoded.username;
+      const decodedEmail = decoded.email; 
 
       localStorage.setItem('username', decodedUsername);
+      localStorage.setItem('email', decodedEmail);
+
       onLogin(decodedUsername, token); // Pass username and token to App
-      navigate('/blog-list');
+      navigate('/dashboard');
     } catch (err) {
       setError(err.response?.data?.msg || 'Login failed');
     }
@@ -46,13 +51,23 @@ const Login = ({ onLogin }) => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    try {
-      await axios.post('https://serialreporter-oobf.vercel.app/api/auth/register', { username, email, password });
-      setIsRegister(false);
-    } catch (err) {
-      setError(err.response?.data?.msg || 'Registration failed');
+    if (!username || !email || !password) {
+        setError('All fields are required.');
+        return;
     }
-  };
+
+    try {
+        const res = await axios.post('https://serialreporter-oobf.vercel.app/api/auth/register', {
+            username,
+            email,
+            password,
+        });
+        alert('Registration successful! Please log in.');
+        setIsRegister(false); // Switch to login form
+    } catch (err) {
+        setError(err.response?.data?.message || 'Registration failed');
+    }
+};
 
   return (
     <div className="auth-container">

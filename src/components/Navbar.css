@@ -6,8 +6,11 @@
     padding: 1rem;
     background-color: #333;
     color: #fff;
-    position: relative;
-    z-index: 20; /* Ensure navbar is above hero */
+    position: sticky; /* Sticky Navbar */
+    top: 0;
+    z-index: 100; /* Ensure navbar stays above content */
+    height: 60px; /* Fixed height */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Navbar brand styling */
@@ -52,17 +55,6 @@
     transition: 0.4s;
 }
 
-/* Transform bars to make 'X' shape when open */
-.bar.open:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-.bar.open:nth-child(2) {
-    opacity: 0;
-}
-.bar.open:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
 /* Responsive styling */
 @media (max-width: 768px) {
     .navbar-links {
@@ -72,13 +64,12 @@
         right: 0;
         background-color: #333;
         flex-direction: column;
-        width: 80%; /* Reduce width to 80% of the screen */
-        max-width: 250px; /* Optional: Set a max width */
+        width: 80%; /* Take full width on small screens */
+        max-width: 250px;
         padding: 1rem;
-        z-index: 30; /* Higher z-index to make sure links display over content */
+        z-index: 30;
     }
 
-    /* Display links when menu is open */
     .navbar-links.open {
         display: flex;
     }
@@ -86,13 +77,4 @@
     .hamburger {
         display: flex;
     }
-}
-
-/* Hero Section Styles */
-.hero {
-    position: relative;
-    width: 100%;
-    height: 900px;
-    overflow: hidden;
-    z-index: 10; /* Make sure hero is below navbar */
 }

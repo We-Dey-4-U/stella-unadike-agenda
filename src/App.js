@@ -8,12 +8,38 @@ import AdminPostForm from './components/AdminPostForm';
 import BlogList from './components/BlogList';
 import BlogPost from './components/BlogPost';
 import Login from './components/Login';
+import Dashboard from './components/Dashboard'; // Import Dashboard
+import ProfileSettings from './components/ProfileSettings'; // Adjust the path as per your project structure
 import { jwtDecode } from 'jwt-decode';
+
+// ProtectedRoute Component
+const ProtectedRoute = ({ children }) => {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    return <div>Please log in to access this page.</div>;
+  }
+
+  try {
+    const decoded = jwtDecode(token);
+    const currentTime = Date.now() / 1000;
+    if (decoded.exp < currentTime) {
+      // Token expired
+      localStorage.removeItem('token');
+      localStorage.removeItem('username');
+      return <div>Session expired. Please log in again.</div>;
+    }
+    return children;
+  } catch (error) {
+    console.error('Invalid token', error);
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    return <div>Invalid session. Please log in again.</div>;
+  }
+};
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState(localStorage.getItem('username') || '');
-  const [isLoginVisible, setIsLoginVisible] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -61,15 +87,29 @@ const App = () => {
     <Router>
       <Navbar isLoggedIn={isLoggedIn} username={username} onLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/Home" element={<Home />} />
         <Route path="/agenda" element={<Agenda />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin/post-form" element={<AdminPostForm />} />
         <Route path="/blog-list" element={<BlogList isLoggedIn={isLoggedIn} />} />
         <Route path="/blog-post/:id" element={<BlogPost isLoggedIn={isLoggedIn} onLogin={handleLogin} />} />
-        <Route path="/login" element={<Login onLogin={handleLogin} />} />
-        <Route path="/" element={<BlogList isLoggedIn={isLoggedIn} onLogin={handleLogin}/>} />
-        <Route path="/post/:id" element={<BlogPost isLoggedIn={isLoggedIn} onLogin={handleLogin} />} />
+        <Route path="/" element={<Login onLogin={handleLogin} />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <ProfileSettings />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </Router>
   );

@@ -1,0 +1,154 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.dashboard-header {
+    background-color: #2a2a72;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logout-button {
+    background-color: #f05454;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #c0392b;
+}
+
+.dashboard-content {
+    display: flex;
+    flex: 1;
+}
+
+/* Sidebar Styling */
+.dashboard-sidebar {
+    width: 220px; /* Reduced width */
+    background-color: #1f4068;
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 60px); /* Adjust height to exclude navbar */
+    position: fixed; /* Sticky Sidebar */
+    top: 60px; /* Starts immediately below the navbar */
+    left: 0;
+    overflow-y: auto;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.dashboard-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard-sidebar li {
+    margin-bottom: 1rem;
+}
+
+.dashboard-sidebar button {
+    background: none;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: left;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.dashboard-sidebar button:hover {
+    background-color: #162447;
+}
+
+
+.header-profile-image {
+    width: 60px; /* Set the width of the profile image */
+    height: 60px; /* Set the height of the profile image */
+    border-radius: 50%; /* Makes the image circular */
+    border: 2px solid #4CAF50; /* Adds a green border */
+    object-fit: cover; /* Ensures the image fits within the circle */
+    margin-left: 10px; /* Add spacing to the left of the header text */
+    cursor: pointer; /* Adds a pointer cursor on hover */
+    transition: transform 0.3s ease; /* Smooth transform animation */
+  }
+  
+  .header-profile-image:hover {
+    transform: scale(1.1); /* Slightly enlarges the image on hover */
+  }
+
+  
+/* Sidebar Responsive */
+@media (max-width: 768px) {
+    .dashboard-sidebar {
+        width: 80%; /* Take up less space on small screens */
+        transform: translateX(-100%); /* Hidden by default */
+    }
+
+    .dashboard-sidebar.open {
+        transform: translateX(0); /* Slide in when open */
+    }
+}
+
+.dashboard-main {
+    margin-left: 220px; /* Match sidebar width */
+    padding: 2rem;
+    flex: 1;
+    overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+    .dashboard-main {
+        margin-left: 0;
+    }
+}
+
+/* Content Cards */
+.user-dashboard {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.user-profile,
+.user-products,
+.user-orders,
+.user-revenue {
+    background-color: #f4f4f4;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 1rem;
+    color: #2a2a72;
+}
+
+.loading {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
