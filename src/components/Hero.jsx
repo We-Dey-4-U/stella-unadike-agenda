@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 
 // Add URLs of images showing artisan works
 const heroImages = [
-  '/images/50care.JPG',
-  '/images/carpentry.jpg',
-  '/images/plumbing.jpg',
-  '/images/electrician.jpg',
+  '/images/artisan1.jpg',
+  '/images/electrician.png',
+
 ];
 
 const Hero = () => {
@@ -42,13 +41,13 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    padding: '120px 20px',
+    padding: '60px 20px',        // reduced from 120px to 60px
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     position: 'relative',
     color: '#fff',
     transition: 'background-image 1s ease-in-out',
-    minHeight: '500px',
+    minHeight: '350px',          // reduced from 500px to 350px
   },
   overlay: {
     backgroundColor: 'rgba(0,0,0,0.5)',
