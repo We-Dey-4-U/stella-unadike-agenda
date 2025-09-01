@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+/* App.css */
+.app-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-container {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.sidebar {
+  width: 250px;
+  /* Other styles for sidebar */
+}
+
+.main-content {
+  flex: 1;
+  padding-left: 250px;  /* Adjust based on sidebar width */
+  /* Other styles for main content */
+}
