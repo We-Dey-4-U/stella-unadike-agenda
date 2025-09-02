@@ -15,7 +15,7 @@ const CTA = () => (
 const styles = {
   ctaSection: {
     position: 'relative',
-    backgroundImage: 'url("/images/cta-bg.jpg")', // replace with a nice banner image
+    backgroundImage: 'url("/images/tailorbarbar.png")', // replace with a nice banner image
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     minHeight: '300px',
